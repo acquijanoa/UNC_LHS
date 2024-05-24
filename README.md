@@ -1,2 +1,2 @@
 # LATAM_HS
-LatinAmerican Health Studies Repository
+Latin American Health Studies Repository
