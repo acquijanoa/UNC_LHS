@@ -1,6 +1,6 @@
-# LATAM_HS
+# UNC_LHS
 
-Latin American Health Studies Repository
+LatinAmerican Health Studies (LHS)  Repository
 
 Projects:
 	LHS0001 = Inequity in Cancer in Chile, 
