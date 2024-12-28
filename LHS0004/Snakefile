@@ -1,0 +1,16 @@
+rule all:
+	input:
+		"data/processed/LHS000401.Rdata",
+		"results/reports/Labels.csv"
+
+rule process_data:
+	input: 
+		"data/raw/COBR72SD/COBR72FL.SAS7BDAT"
+	output:
+		"data/processed/LHS000401.Rdata",
+		"results/reports/Labels.csv"
+	log:
+		"logs/LHS000401.log"
+	shell:
+		"Rscript scripts/LHS000401.R {input} {output} > {log} 2>&1"
+

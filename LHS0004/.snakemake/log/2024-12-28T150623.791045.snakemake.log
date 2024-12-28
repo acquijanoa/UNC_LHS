@@ -1,0 +1,41 @@
+host: mbp-de-alvaro-2.wireless-1x.unc.edu
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+process_data        1
+total               2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Dec 28 15:06:23 2024]
+localrule process_data:
+    input: data/raw/COBR72SD/COBR72FL.SAS7BDAT
+    output: data/processed/LHS000401.Rdata, results/reports/Labels.csv
+    log: logs/process_data.log
+    jobid: 1
+    reason: Missing output files: data/processed/LHS000401.Rdata, results/reports/Labels.csv
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+[Sat Dec 28 15:06:43 2024]
+Error in rule process_data:
+    jobid: 1
+    input: data/raw/COBR72SD/COBR72FL.SAS7BDAT
+    output: data/processed/LHS000401.Rdata, results/reports/Labels.csv
+    log: logs/process_data.log (check log file(s) for error details)
+    shell:
+        Rscript scripts/LHS000401.R data/raw/COBR72SD/COBR72FL.SAS7BDAT data/processed/LHS000401.Rdata results/reports/Labels.csv
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job process_data since they might be corrupted:
+results/reports/Labels.csv
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-12-28T150623.791045.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
