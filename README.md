@@ -14,6 +14,15 @@ Study examining stunting prevalence and its determinants among children in Hondu
 ### LHS0003: Overweight Analysis Among Women (Honduras and Colombia)  
 Investigation of factors associated with overweight and obesity among women in Honduras and Colombia.
 
+## Bash files
+
+### Create_project_folders.sh
+	
+```
+chmod +x create_project_folders.sh
+./create_project_folders.sh
+```
+
 ---
 
 ## Author
