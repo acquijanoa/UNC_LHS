@@ -21,5 +21,6 @@ Investigation of factors associated with overweight and obesity among women in H
 **Author:** Álvaro Quijano  
 **Email:** acquijanoa@unc.edu  
 
-For any questions or collaboration opportunities, feel free to reach out!
+**For any questions or collaboration opportunities, feel free to reach out!**
+
 ---
