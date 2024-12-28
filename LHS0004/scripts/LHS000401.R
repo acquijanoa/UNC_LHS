@@ -25,7 +25,6 @@ library(tidyverse)
 
 ## Load commandLine arguments
 args = commandArgs(trailingOnly = TRUE)
-print(args)
 input_file = args[1]
 output_labels = args[3]
 output_file = args[2]
