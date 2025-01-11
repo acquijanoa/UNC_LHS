@@ -1,0 +1,27 @@
+host: mbp-de-alvaro-2.wireless-1x.unc.edu
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+derive_data        1
+total              1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Jan  4 16:27:05 2025]
+localrule derive_data:
+    input: data/raw/wm.sav
+    output: data/derived/LHS000501.Rdata
+    log: logs/LHS000501.log
+    jobid: 0
+    reason: Missing output files: data/derived/LHS000501.Rdata
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+[Sat Jan  4 16:27:11 2025]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2025-01-04T162705.599211.snakemake.log

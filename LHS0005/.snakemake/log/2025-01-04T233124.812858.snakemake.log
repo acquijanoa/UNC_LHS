@@ -1,0 +1,4 @@
+host: mbp-de-alvaro-2.wireless-1x.unc.edu
+Building DAG of jobs...
+MissingRuleException:
+No rule to produce run_docker (if you use input functions make sure that they don't raise unexpected exceptions).

@@ -1,3 +1,76 @@
 # Snakefile
-
 configfile: "config/config.yaml"
+ 
+rule all:
+	input: "data/derived/LHS000501.Rdata","data/processed/LHS00050201.csv","data/processed/LHS00050202.csv","data/processed/LHS00050203.csv","data/processed/LHS000503.shp","results/figures/Plot_byWealth.pdf","results/figures/Plot_byAge.pdf","results/figures/Plot_byEducation.pdf"
+
+# Derive the dataset
+rule derive_data:
+	input:
+		"data/raw/wm.sav"
+	output:
+		"data/derived/LHS000501.Rdata"
+	log:
+		"logs/LHS000501.log"
+	shell:
+		"Rscript scripts/LHS000501.R {input} {output} > {log} 2>&1"
+
+# Estimate the design-based probabilities of overweight and obesity
+rule prob_overweight_obesity:
+	input: 
+		"data/derived/LHS000501.Rdata"
+	output:
+		"data/processed/LHS00050201.csv","data/processed/LHS00050202.csv","data/processed/LHS00050203.csv"
+	log: 	
+		"logs/LHS000502.log"
+	shell: 
+		"Rscript scripts/LHS000502.R {input} {output} > {log} 2>&1"
+
+rule process_shapefile:
+	input:
+		"data/raw/shps/Shp_mgd.shp"
+	output:	
+		"data/processed/LHS000503.shp"
+	log:
+		"logs/LHS000503.log"
+	shell:
+		"Rscript scripts/LHS000503.R {input} {output} > {log} 2>&1"
+
+rule plot_map_wealth: 
+	input:	
+		"data/processed/LHS00050201.csv",
+		"data/processed/LHS000503.shp",
+		"data/raw/shps/World_Countries_Generalized.shp",
+		"data/raw/shps/borders_.shp" 
+	output: 
+		"results/figures/Plot_byWealth.pdf"
+	log:
+		"logs/LHS000504.log"
+	shell: 
+		"Rscript scripts/LHS000504.R {input} {output} > {log} 2>&1"
+
+rule plot_map_age: 
+	input:	
+		"data/processed/LHS00050202.csv",
+		"data/processed/LHS000503.shp",
+		"data/raw/shps/World_Countries_Generalized.shp",
+		"data/raw/shps/borders_.shp" 
+	output: 
+		"results/figures/Plot_byAge.pdf"
+	log:
+		"logs/LHS000505.log"
+	shell: 
+		"Rscript scripts/LHS000505.R {input} {output} > {log} 2>&1"
+
+rule plot_map_education: 
+	input:	
+		"data/processed/LHS00050203.csv",
+		"data/processed/LHS000503.shp",
+		"data/raw/shps/World_Countries_Generalized.shp",
+		"data/raw/shps/borders_.shp" 
+	output: 
+		"results/figures/Plot_byEducation.pdf"
+	log:
+		"logs/LHS000506.log"
+	shell: 
+		"Rscript scripts/LHS000506.R {input} {output} > {log} 2>&1"

@@ -1,0 +1,39 @@
+host: mbp-de-alvaro-2.wireless-1x.unc.edu
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+prob_overweight_obesity        1
+total                          2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Jan 10 23:09:27 2025]
+localrule prob_overweight_obesity:
+    input: data/derived/LHS000501.Rdata
+    output: data/derived/LHS000502.csv
+    log: logs/LHS000502.log
+    jobid: 2
+    reason: Missing output files: data/derived/LHS000502.csv
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+[Fri Jan 10 23:09:28 2025]
+Error in rule prob_overweight_obesity:
+    jobid: 2
+    input: data/derived/LHS000501.Rdata
+    output: data/derived/LHS000502.csv
+    log: logs/LHS000502.log (check log file(s) for error details)
+    shell:
+        Rscript scripts/LHS00502.R data/derived/LHS000501.Rdata data/derived/LHS000502.csv > logs/LHS000502.log 2>&1
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-01-10T230927.944667.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

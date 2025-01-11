@@ -1,0 +1,38 @@
+host: mbp-de-alvaro-2.wireless-1x.unc.edu
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job         count
+--------  -------
+plot_map        1
+total           1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Jan 11 14:29:59 2025]
+localrule plot_map:
+    input: data/processed/LHS00050201.csv, data/processed/LHS000503.shp, data/raw/shps/World_Countries_Generalized.shp, data/raw/shps/borders_.shp
+    output: results/figures/plot1.pdf
+    log: logs/LHS000504.log
+    jobid: 0
+    reason: Missing output files: results/figures/plot1.pdf
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+[Sat Jan 11 14:29:59 2025]
+Error in rule plot_map:
+    jobid: 0
+    input: data/processed/LHS00050201.csv, data/processed/LHS000503.shp, data/raw/shps/World_Countries_Generalized.shp, data/raw/shps/borders_.shp
+    output: results/figures/plot1.pdf
+    log: logs/LHS000504.log (check log file(s) for error details)
+    shell:
+        Rcript scripts/LHS000504.R data/processed/LHS00050201.csv data/processed/LHS000503.shp data/raw/shps/World_Countries_Generalized.shp data/raw/shps/borders_.shp results/figures/plot1.pdf > logs/LHS000504.log 2>&1
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-01-11T142959.407454.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

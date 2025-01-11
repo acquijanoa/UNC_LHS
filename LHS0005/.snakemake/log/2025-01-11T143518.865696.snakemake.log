@@ -1,0 +1,27 @@
+host: mbp-de-alvaro-2.wireless-1x.unc.edu
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job         count
+--------  -------
+plot_map        1
+total           1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Jan 11 14:35:18 2025]
+localrule plot_map:
+    input: data/processed/LHS00050201.csv, data/processed/LHS000503.shp, data/raw/shps/World_Countries_Generalized.shp, data/raw/shps/borders_.shp
+    output: results/figures/Plot_byWealth.pdf
+    log: logs/LHS000504.log
+    jobid: 0
+    reason: Missing output files: results/figures/Plot_byWealth.pdf
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+[Sat Jan 11 14:35:20 2025]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2025-01-11T143518.865696.snakemake.log

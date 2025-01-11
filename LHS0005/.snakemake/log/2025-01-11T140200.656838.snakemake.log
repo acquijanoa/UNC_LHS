@@ -1,0 +1,7 @@
+host: mbp-de-alvaro-2.wireless-1x.unc.edu
+Building DAG of jobs...
+MissingInputException in rule plot_map in file /Users/alvaroquijano/Documentos/Research/UNC_LHS/LHS0005/Snakefile, line 43:
+Missing input files for rule plot_map:
+    output: results/figures/plot1.pdf
+    affected files:
+        data/processed/LHS0005003.shp

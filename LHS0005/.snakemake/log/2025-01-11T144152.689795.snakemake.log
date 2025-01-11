@@ -1,0 +1,40 @@
+host: mbp-de-alvaro-2.wireless-1x.unc.edu
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+plot_map_age        1
+total               1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Jan 11 14:41:52 2025]
+localrule plot_map_age:
+    input: data/processed/LHS00050202.csv, data/processed/LHS000503.shp, data/raw/shps/World_Countries_Generalized.shp, data/raw/shps/borders_.shp
+    output: results/figures/Plot_byAge.pdf
+    log: logs/LHS000505.log
+    jobid: 0
+    reason: Missing output files: results/figures/Plot_byAge.pdf
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+[Sat Jan 11 14:41:53 2025]
+Error in rule plot_map_age:
+    jobid: 0
+    input: data/processed/LHS00050202.csv, data/processed/LHS000503.shp, data/raw/shps/World_Countries_Generalized.shp, data/raw/shps/borders_.shp
+    output: results/figures/Plot_byAge.pdf
+    log: logs/LHS000505.log (check log file(s) for error details)
+    shell:
+        Rscript scripts/LHS000505.R data/processed/LHS00050202.csv data/processed/LHS000503.shp data/raw/shps/World_Countries_Generalized.shp data/raw/shps/borders_.shp results/figures/Plot_byAge.pdf > logs/LHS000505.log 2>&1
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job plot_map_age since they might be corrupted:
+results/figures/Plot_byAge.pdf
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-01-11T144152.689795.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

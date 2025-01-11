@@ -1,0 +1,24 @@
+host: mbp-de-alvaro-2.wireless-1x.unc.edu
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job           count
+----------  -------
+run_docker        1
+total             1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Jan  4 14:31:15 2025]
+localrule run_docker:
+    jobid: 0
+    reason: Rules with neither input nor output files are always executed.
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+Terminating processes on user request, this might take some time.
+Complete log: .snakemake/log/2025-01-04T143115.086755.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

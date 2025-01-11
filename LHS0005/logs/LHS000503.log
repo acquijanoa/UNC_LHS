@@ -1,0 +1,15 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE
+Writing layer `LHS000503' to data source 
+  `data/processed/LHS000503.shp' using driver `ESRI Shapefile'
+Writing 20 features with 1 fields and geometry type Multi Polygon.

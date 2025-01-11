@@ -1,0 +1,57 @@
+host: mbp-de-alvaro-2.wireless-1x.unc.edu
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+derive_data                    1
+prob_overweight_obesity        1
+total                          3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Jan 11 12:28:21 2025]
+localrule derive_data:
+    input: data/raw/wm.sav
+    output: data/derived/LHS000501.Rdata
+    log: logs/LHS000501.log
+    jobid: 1
+    reason: Missing output files: data/derived/LHS000501.Rdata
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+[Sat Jan 11 12:28:25 2025]
+Finished job 1.
+1 of 3 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Jan 11 12:28:25 2025]
+localrule prob_overweight_obesity:
+    input: data/derived/LHS000501.Rdata
+    output: data/derived/LHS00050201.csv, data/derived/LHS00050202.csv, data/derived/LHS00050203.csv
+    log: logs/LHS000502.log
+    jobid: 2
+    reason: Missing output files: data/derived/LHS00050202.csv, data/derived/LHS00050201.csv, data/derived/LHS00050203.csv; Input files updated by another job: data/derived/LHS000501.Rdata
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+[Sat Jan 11 12:28:26 2025]
+Finished job 2.
+2 of 3 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Jan 11 12:28:26 2025]
+localrule all:
+    input: data/derived/LHS000501.Rdata, data/derived/LHS00050201.csv, data/derived/LHS00050202.csv, data/derived/LHS00050203.csv
+    jobid: 0
+    reason: Input files updated by another job: data/derived/LHS00050202.csv, data/derived/LHS000501.Rdata, data/derived/LHS00050201.csv, data/derived/LHS00050203.csv
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+[Sat Jan 11 12:28:26 2025]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2025-01-11T122821.879678.snakemake.log
