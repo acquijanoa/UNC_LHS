@@ -1,0 +1,27 @@
+host: MacBook-Pro-de-ALVARO-2.local
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count
+------------------  -------
+transform_response        1
+total                     1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Jan 11 17:46:56 2025]
+localrule transform_response:
+    input: data/processed/LHS00050201.csv, data/processed/LHS00050202.csv, data/processed/LHS00050203.csv
+    output: data/processed/LHS00050201_transformed.csv, data/processed/LHS00050202_transformed.csv, data/processed/LHS00050203_transformed.csv
+    log: logs/LHS000507.log
+    jobid: 0
+    reason: Missing output files: data/processed/LHS00050203_transformed.csv, data/processed/LHS00050201_transformed.csv, data/processed/LHS00050202_transformed.csv
+    resources: tmpdir=/var/folders/rh/73j4j75x38q4qn8k4y_2wgvh0000gn/T
+
+[Sat Jan 11 17:46:57 2025]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2025-01-11T174656.930501.snakemake.log

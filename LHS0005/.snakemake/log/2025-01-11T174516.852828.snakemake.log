@@ -1,0 +1,9 @@
+host: MacBook-Pro-de-ALVARO-2.local
+Building DAG of jobs...
+MissingInputException in rule transform_response in file /Users/alvaroquijano/Documentos/Research/UNC_LHS/LHS0005/Snakefile, line 93:
+Missing input files for rule transform_response:
+    output: data/processed/LHS00050201_transformed.csv, data/processed/LHS00050202_transformed.csv, data/processed/LHS00050203_transformed.csv
+    affected files:
+        data/processed/LHS00550203.csv
+        data/processed/LHS00550202.csv
+        data/processed/LHS00550201.csv

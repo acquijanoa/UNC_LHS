@@ -2,8 +2,18 @@
 configfile: "config/config.yaml"
  
 rule all:
-	input: "data/derived/LHS000501.Rdata","data/processed/LHS00050201.csv","data/processed/LHS00050202.csv","data/processed/LHS00050203.csv","data/processed/LHS000503.shp","results/figures/Plot_byWealth.pdf","results/figures/Plot_byAge.pdf","results/figures/Plot_byEducation.pdf"
-
+	input:	"data/derived/LHS000501.Rdata",
+		"data/processed/LHS00050201.csv",
+		"data/processed/LHS00050202.csv",
+		"data/processed/LHS00050203.csv",
+		"data/processed/LHS000503.shp",
+		"results/figures/Plot_byWealth.pdf",
+		"results/figures/Plot_byAge.pdf",
+		"results/figures/Plot_byEducation.pdf",
+		"data/processed/LHS00050201_transformed.csv",
+		"data/processed/LHS00050202_transformed.csv",
+		"data/processed/LHS00050203_transformed.csv"
+    
 # Derive the dataset
 rule derive_data:
 	input:
@@ -26,6 +36,7 @@ rule prob_overweight_obesity:
 	shell: 
 		"Rscript scripts/LHS000502.R {input} {output} > {log} 2>&1"
 
+# Process and clean the shapefile
 rule process_shapefile:
 	input:
 		"data/raw/shps/Shp_mgd.shp"
@@ -36,6 +47,7 @@ rule process_shapefile:
 	shell:
 		"Rscript scripts/LHS000503.R {input} {output} > {log} 2>&1"
 
+# Create probabily maps by wealth 
 rule plot_map_wealth: 
 	input:	
 		"data/processed/LHS00050201.csv",
@@ -49,6 +61,7 @@ rule plot_map_wealth:
 	shell: 
 		"Rscript scripts/LHS000504.R {input} {output} > {log} 2>&1"
 
+# Create probability maps by age
 rule plot_map_age: 
 	input:	
 		"data/processed/LHS00050202.csv",
@@ -62,6 +75,7 @@ rule plot_map_age:
 	shell: 
 		"Rscript scripts/LHS000505.R {input} {output} > {log} 2>&1"
 
+# Create probability maps by education
 rule plot_map_education: 
 	input:	
 		"data/processed/LHS00050203.csv",
@@ -74,3 +88,20 @@ rule plot_map_education:
 		"logs/LHS000506.log"
 	shell: 
 		"Rscript scripts/LHS000506.R {input} {output} > {log} 2>&1"
+		
+# Apply logit and arcsine square root transformation to the predicted probabilities
+rule transform_response:
+	input:
+		"data/processed/LHS00050201.csv",
+		"data/processed/LHS00050202.csv",
+		"data/processed/LHS00050203.csv"
+	output:
+		"data/processed/LHS00050201_transformed.csv",
+		"data/processed/LHS00050202_transformed.csv",
+		"data/processed/LHS00050203_transformed.csv"
+	log:
+		"logs/LHS000507.log"
+	shell:
+		"Rscript scripts/LHS000507.R {input} {output} > {log} 2>&1"
+        
+        
